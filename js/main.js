@@ -149,7 +149,8 @@ var startMicrophone = function () {
 			    if ( average > 1.0 ) {
 				    Circle.centerX = Math.random() * canvas.width;
 				    Circle.centerY = Math.random() * canvas.height;
-				    Circle.draw(average);
+				    Circle.color = assignColor(average);
+				    Circle.draw(average/2);
 			    }
 
 			    currentTime = Date.now();
@@ -188,6 +189,24 @@ var finishRecording = function () {
 	  // need is to return the url to the file, you just saved 
 	  // and than put the image in your browser.
 	});
+}
+
+var assignColor = function (average) {
+	if ( average <= 10.0 ) {
+		return '#202026';
+	}
+	else if ( average > 10.0 && average <= 25.0 ) {
+		return '#86A68E';
+	}
+	else if ( average > 25.0 && average <= 40.0 ) {
+		return '#D9C99A';
+	}
+	else if ( average > 40.0 && average <= 60.0 ) {
+		return '#F2CB57';
+	}
+	else if ( average > 60.0 ) {
+		return '#D9A78B';
+	}
 }
 
 startButton.addEventListener('click', function() {

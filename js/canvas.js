@@ -11,14 +11,15 @@ var Circle = {
 	centerX: canvas.width / 2,
 	centerY: canvas.height / 2,
 	radius: 70,
+	color: '#000',
 
 	draw: function(r) {
 		this.radius = r
 		ctx.beginPath();
 		ctx.arc(this.centerX, this.centerY, this.radius, 0, 2 * Math.PI, false);
-		ctx.lineWidth = 1;
-		ctx.strokeStyle = '#999';
-		ctx.stroke();
+		ctx.fillStyle =  this.color;
+		ctx.globalAlpha = 0.7
+		ctx.fill();
 	}
 }
 
